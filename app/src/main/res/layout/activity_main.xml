@@ -15,7 +15,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="selecione quantidade jogadores:" />
+        android:text="@string/legenda" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" // 0 -> Pedra // 1 -> Papel // 2 -> Tesoura" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/selecione_quantidade_jogadores" />
 
     <RadioGroup
         android:id="@+id/opcaoRg"
@@ -36,7 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/tr_s"/>
+            android:text="@string/tres"/>
     </RadioGroup>
 
 
@@ -51,21 +61,21 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/pedraBt"
+            android:id="@+id/zeroBt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginHorizontal="5dp"
             android:text="@string/pedra"/>
         <Button
-            android:id="@+id/papelBt"
+            android:id="@+id/umBt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginHorizontal="5dp"
             android:text="@string/papel" />
         <Button
-            android:id="@+id/tesouraBt"
+            android:id="@+id/doisBt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
