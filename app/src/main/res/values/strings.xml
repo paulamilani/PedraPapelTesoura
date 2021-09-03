@@ -5,11 +5,12 @@
     <string name="pedra">pedra</string>
     <string name="papel">papel</string>
     <string name="tesoura">tesoura</string>
-    <string name="resultado">Resultado</string>
+    <string name="resultado">RESULTADO</string>
     <string name="dois">Dois</string>
     <string name="tres">Três</string>
-    <string name="legenda">Legenda:</string>
     <string name="selecione_quantidade_jogadores">Selecione quantidade jogadores:</string>
+    <string name="jokenpo">JoKenPo</string>
+    <string name="jogada_computador">Jogada computador</string>
 
 </resources>
 
