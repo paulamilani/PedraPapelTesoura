@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void jogar(int jogadaHumano) {
 
         Random random = new Random((System.currentTimeMillis()));
-        int jogadaComputador2 = random.nextInt(3);
         int jogadaComputador1 = random.nextInt(3);
+        int jogadaComputador2 = random.nextInt(3);
 
         String jgC1 = " ";
         String jgC2 = " ";
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //coputador 2
         int imageJogadaComputadorId2 = -1;
-        switch (jogadaComputador1) {
+        switch (jogadaComputador2) {
             case 0:
                 imageJogadaComputadorId2 = R.mipmap.pedra;
                 break;
@@ -133,22 +133,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // --------- exibe jogadas e resultado ------//
         StringBuilder resultadoSb = new StringBuilder();
-        resultadoSb.append(" Sua jogada: ");
-        resultadoSb.append(hu);
-        resultadoSb.append("\n");
+        StringBuilder resultadoH = new StringBuilder();
+        StringBuilder resultadoC1 = new StringBuilder();
+        StringBuilder resultadoC2 = new StringBuilder();
 
-        resultadoSb.append(" ComputadorUM: ");
-        resultadoSb.append(jgC1);
-        resultadoSb.append("\n");
+        resultadoH.append(" Sua jogada: ");
+        resultadoH.append(hu);
+        resultadoH.append("\n");
 
-        resultadoSb.append(" ComputadorDOIS: ");
-        resultadoSb.append(jgC2);
-        resultadoSb.append("\n");
+        resultadoC1.append(" ComputadorUM: ");
+        resultadoC1.append(jgC1);
+        resultadoC1.append("\n");
 
+        resultadoC2.append(" ComputadorDOIS: ");
+        resultadoC2.append(jgC2);
+        resultadoC2.append("\n");
 
-       // -------- verifica radio button qtd jogadores e executa validações -------//
+        // -------- verifica radio button qtd jogadores e executa validações -------//
         if (activityMainBinding.opcaoRg.getCheckedRadioButtonId() == R.id.doisRb) {
             activityMainBinding.jogadaComputador2.setVisibility(View.INVISIBLE);
+            activityMainBinding.resultadoC2.setVisibility(View.INVISIBLE);
             if (jogadaHumano == jogadaComputador1) {
                 resultadoSb.append("Empate");
             } else {
@@ -163,24 +167,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (activityMainBinding.opcaoRg.getCheckedRadioButtonId() == R.id.tresRb) {
             activityMainBinding.jogadaComputador2.setVisibility(View.VISIBLE);
+            activityMainBinding.resultadoC2.setVisibility(View.VISIBLE);
             if (jogadaHumano == jogadaComputador1 && jogadaHumano == jogadaComputador2) {
                 resultadoSb.append("Empate");
 
-            } else if (jogadaComputador2 == jogadaHumano) {
+            } else if (jogadaHumano == jogadaComputador2) {
                 if ((jogadaHumano == 0 && jogadaComputador1 == 2) || (jogadaHumano == 1 && jogadaComputador1 == 0) || (jogadaHumano == 2 && jogadaComputador1 == 1)) {
                     resultadoSb.append("Você Venceu e tem 1 empate com ComputadorDOIS");
                 }
-            } else if (jogadaComputador1 == jogadaHumano) {
+            } else if (jogadaHumano == jogadaComputador1) {
                 if ((jogadaHumano == 0 && jogadaComputador2 == 2) || (jogadaHumano == 1 && jogadaComputador2 == 0) || (jogadaHumano == 2 && jogadaComputador2 == 1)) {
                     resultadoSb.append("Você Venceu e tem 1 empate com ComputadorUM");
+                }
+            } else if (jogadaComputador1 == jogadaComputador2) {
+                if ((jogadaHumano == 0 && jogadaComputador2 == 2) || (jogadaHumano == 1 && jogadaComputador2 == 0) || (jogadaHumano == 2 && jogadaComputador2 == 1)) {
+                    resultadoSb.append("Você Venceu");
                 }
             } else {
                 resultadoSb.append("Você perdeu");
             }
-
         }
 
-       activityMainBinding.resultadoTv.setText(resultadoSb.toString());
+        activityMainBinding.resultadoH.setText(resultadoH.toString());
+        activityMainBinding.resultadoC1.setText(resultadoC1.toString());
+        activityMainBinding.resultadoC2.setText(resultadoC2.toString());
+        activityMainBinding.resultadoTv.setText(resultadoSb.toString());
     }
 
 }

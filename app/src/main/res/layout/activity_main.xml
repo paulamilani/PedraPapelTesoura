@@ -111,6 +111,18 @@
         android:text="@string/resultado" />
 
     <TextView
+        android:id="@+id/resultadoH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/resultadoC1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/resultadoC2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
         android:id="@+id/resultadoTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
