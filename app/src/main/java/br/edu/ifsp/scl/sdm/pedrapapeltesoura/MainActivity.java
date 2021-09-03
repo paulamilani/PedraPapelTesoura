@@ -133,21 +133,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // --------- exibe jogadas e resultado ------//
         StringBuilder resultadoSb = new StringBuilder();
-        StringBuilder resultadoH = new StringBuilder();
-        StringBuilder resultadoC1 = new StringBuilder();
-        StringBuilder resultadoC2 = new StringBuilder();
-
-        resultadoH.append(" Sua jogada: ");
-        resultadoH.append(hu);
-        resultadoH.append("\n");
-
-        resultadoC1.append(" ComputadorUM: ");
-        resultadoC1.append(jgC1);
-        resultadoC1.append("\n");
-
-        resultadoC2.append(" ComputadorDOIS: ");
-        resultadoC2.append(jgC2);
-        resultadoC2.append("\n");
 
         // -------- verifica radio button qtd jogadores e executa validações -------//
         if (activityMainBinding.opcaoRg.getCheckedRadioButtonId() == R.id.doisRb) {
@@ -188,9 +173,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        activityMainBinding.resultadoH.setText(resultadoH.toString());
-        activityMainBinding.resultadoC1.setText(resultadoC1.toString());
-        activityMainBinding.resultadoC2.setText(resultadoC2.toString());
+        String resultadoH = " Sua jogada: " +  hu + "\n";
+        activityMainBinding.resultadoH.setText(resultadoH);
+        String resultadoC1 = " ComputadorUM: " + jgC1 + "\n";
+        activityMainBinding.resultadoC1.setText(resultadoC1);
+        String resultadoC2 = " ComputadorDOIS: " + jgC2 + "\n";
+        activityMainBinding.resultadoC2.setText(resultadoC2);
         activityMainBinding.resultadoTv.setText(resultadoSb.toString());
     }
 
