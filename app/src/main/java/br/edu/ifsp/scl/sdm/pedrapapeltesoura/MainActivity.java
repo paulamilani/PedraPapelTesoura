@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
 
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
-
         setContentView(activityMainBinding.getRoot());
 
         activityMainBinding.opcaoRg.setOnClickListener(this);
@@ -57,17 +56,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int jogadaComputador2 = random.nextInt(3);
         int jogadaComputador1 = random.nextInt(3);
 
+        String jgC1 = " ";
+        String jgC2 = " ";
+        String hu = " ";
+
+        // ------ set imagens ----//
         //computador 1
         int imageJogadaComputadorId1 = -1;
         switch (jogadaComputador1) {
             case 0:
-                imageJogadaComputadorId1 = R.mipmap.zero;
+                imageJogadaComputadorId1 = R.mipmap.pedra;
                 break;
             case 1:
-                imageJogadaComputadorId1 = R.mipmap.two;
+                imageJogadaComputadorId1 = R.mipmap.papel;
                 break;
             case 2:
-                imageJogadaComputadorId1 = R.mipmap.five;
+                imageJogadaComputadorId1 = R.mipmap.tesoura;
                 break;
         }
         activityMainBinding.jogadaComputador1.setImageResource(imageJogadaComputadorId1);
@@ -76,30 +80,73 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int imageJogadaComputadorId2 = -1;
         switch (jogadaComputador1) {
             case 0:
-                imageJogadaComputadorId2 = R.mipmap.zero;
+                imageJogadaComputadorId2 = R.mipmap.pedra;
                 break;
             case 1:
-                imageJogadaComputadorId2 = R.mipmap.two;
+                imageJogadaComputadorId2 = R.mipmap.papel;
                 break;
             case 2:
-                imageJogadaComputadorId2 = R.mipmap.five;
+                imageJogadaComputadorId2 = R.mipmap.tesoura;
                 break;
         }
         activityMainBinding.jogadaComputador2.setImageResource(imageJogadaComputadorId2);
 
+        //-------------converte numero da jogada para exibir no resultados--------//
+        //humano
+        switch (jogadaHumano) {
+            case 0:
+                hu = "Pedra";
+                break;
+            case 1:
+                hu = "Papel";
+                break;
+            case 2:
+                hu = "Tesoura";
+                break;
+        }
+
+        //computador 1
+        switch (jogadaComputador1) {
+            case 0:
+                jgC1 = "Pedra";
+                break;
+            case 1:
+                jgC1 = "Papel";
+                break;
+            case 2:
+                jgC1 = "Tesoura";
+                break;
+        }
+
+        //computador 2
+        switch (jogadaComputador2) {
+            case 0:
+                jgC2 = "Pedra";
+                break;
+            case 1:
+                jgC2 = "Papel";
+                break;
+            case 2:
+                jgC2 = "Tesoura";
+                break;
+        }
+
+        // --------- exibe jogadas e resultado ------//
         StringBuilder resultadoSb = new StringBuilder();
         resultadoSb.append(" Sua jogada: ");
-        resultadoSb.append(jogadaHumano);
+        resultadoSb.append(hu);
         resultadoSb.append("\n");
 
         resultadoSb.append(" ComputadorUM: ");
-        resultadoSb.append(jogadaComputador1);
+        resultadoSb.append(jgC1);
         resultadoSb.append("\n");
 
         resultadoSb.append(" ComputadorDOIS: ");
-        resultadoSb.append(jogadaComputador2);
+        resultadoSb.append(jgC2);
         resultadoSb.append("\n");
 
+
+       // -------- verifica radio button qtd jogadores e executa validações -------//
         if (activityMainBinding.opcaoRg.getCheckedRadioButtonId() == R.id.doisRb) {
             activityMainBinding.jogadaComputador2.setVisibility(View.INVISIBLE);
             if (jogadaHumano == jogadaComputador1) {
@@ -130,13 +177,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else {
                 resultadoSb.append("Você perdeu");
             }
+
         }
 
-        activityMainBinding.resultadoTv.setText(resultadoSb.toString());
-
-
-
-        //-------------converte numero da jogada para string --------//
+       activityMainBinding.resultadoTv.setText(resultadoSb.toString());
     }
 
 }
