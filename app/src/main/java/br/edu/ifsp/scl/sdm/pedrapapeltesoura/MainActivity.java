@@ -13,17 +13,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ActivityMainBinding activityMainBinding;
 
+    //to do - ler as configs da opcoes actvity para utilizar na logica das jogadas
+    int qtd_jogador = 0;
+    int qtd_jogada = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(activityMainBinding.getRoot());
 
-        activityMainBinding.opcaoRg.setOnClickListener(this);
         activityMainBinding.zeroBt.setOnClickListener(this);
         activityMainBinding.umBt.setOnClickListener(this);
         activityMainBinding.doisBt.setOnClickListener(this);
+
+        activityMainBinding.mainTb.appTb.setTitle("JoKenPo");
+        activityMainBinding.mainTb.appTb.setSubtitle("JoKenPo");
+        setSupportActionBar(activityMainBinding.mainTb.appTb);
 
     }
 
@@ -135,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         StringBuilder resultadoSb = new StringBuilder();
 
         // -------- verifica radio button qtd jogadores e executa validações -------//
-        if (activityMainBinding.opcaoRg.getCheckedRadioButtonId() == R.id.doisRb) {
+        if (qtd_jogador == 2) {
             activityMainBinding.jogadaComputador2.setVisibility(View.INVISIBLE);
             activityMainBinding.resultadoC2.setVisibility(View.INVISIBLE);
             if (jogadaHumano == jogadaComputador1) {
@@ -150,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-        if (activityMainBinding.opcaoRg.getCheckedRadioButtonId() == R.id.tresRb) {
+        if (qtd_jogador == 3) {
             activityMainBinding.jogadaComputador2.setVisibility(View.VISIBLE);
             activityMainBinding.resultadoC2.setVisibility(View.VISIBLE);
             if (jogadaHumano == jogadaComputador1 && jogadaHumano == jogadaComputador2) {

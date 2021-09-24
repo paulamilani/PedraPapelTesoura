@@ -7,37 +7,11 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <include
+        android:id="@+id/mainTb"
+        layout="@layout/toolbar_app"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/jokenpo" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/selecione_quantidade_jogadores" />
-
-    <RadioGroup
-        android:id="@+id/opcaoRg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/doisRb"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="@string/dois"/>
-
-        <RadioButton
-            android:id="@+id/tresRb"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/tres"/>
-    </RadioGroup>
+        android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="match_parent"

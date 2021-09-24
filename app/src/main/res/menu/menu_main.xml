@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/viewMi"
+        android:icon="@drawable/ic_browser"
+        app:showAsAction="ifRoom"
+        android:title="TODO" />
+    <item
+        android:title="Configurações"
+        app:showAsAction="never">
+
+    </item>
+
+    <item
+        android:id="@+id/actionMi"
+        app:showAsAction="never"
+        android:title="Jogar" />
+
+    <item
+        android:id="@+id/exitMi"
+        android:icon="@drawable/ic_exit"
+        app:showAsAction="ifRoom"
+        android:title="Sair" />
+
+</menu>

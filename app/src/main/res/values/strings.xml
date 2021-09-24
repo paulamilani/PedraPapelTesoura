@@ -8,9 +8,12 @@
     <string name="resultado">RESULTADO</string>
     <string name="dois">Dois</string>
     <string name="tres">Três</string>
-    <string name="selecione_quantidade_jogadores">Selecione quantidade jogadores:</string>
+    <string name="selecione_quantidade_rodadas">Selecione quantidade jogadores:</string>
     <string name="jokenpo">JoKenPo</string>
     <string name="jogada_computador">Jogada computador</string>
+    <string name="selecione_a_quantidade_de_rodadas">Selecione a quantidade de rodadas:</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="cinco">Cinco</string>
 
 </resources>
 
